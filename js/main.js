@@ -64,16 +64,16 @@ window.onload=function(){
     var zoomHome = L.Control.zoomHome();
     zoomHome.addTo(mymap);
     // tool as template and relocate the chart by fiinding coordinates from inspect
-    // srcArr = ["http://b.basemaps.cartocdn.com/light_all/5/5/11.png",
-    //               "http://c.basemaps.cartocdn.com/light_all/5/5/12.png",
-    //               "http://a.basemaps.cartocdn.com/light_all/5/7/11.png",
-    //               "http://a.basemaps.cartocdn.com/light_all/5/9/12.png",
-    //               "http://c.basemaps.cartocdn.com/light_all/5/9/11.png",
-    //               "http://b.basemaps.cartocdn.com/light_all/5/4/12.png"]
+    srcArr = ["http://b.basemaps.cartocdn.com/light_all/5/5/11.png",
+                  "http://c.basemaps.cartocdn.com/light_all/5/5/12.png",
+                  "http://a.basemaps.cartocdn.com/light_all/5/7/11.png",
+                  "http://a.basemaps.cartocdn.com/light_all/5/9/12.png",
+                  "http://c.basemaps.cartocdn.com/light_all/5/9/11.png",
+                  "http://b.basemaps.cartocdn.com/light_all/5/4/12.png"]
     coordArr = [[443, 187], [553, 615], [955, 160], [1246, 475], [1467, 240], [220, 431]] //from inspect
     chartIdArr = ["g-chart1", "g-chart2", "g-chart3", "g-chart4", "g-chart5", "g-chart6"]
 
-    relocateChart(coordArr, chartIdArr)
+    relocateChart(srcArr, chartIdArr)
     bindOnClickEvents(chartIdArr, locationMap, mymap)
 }
 

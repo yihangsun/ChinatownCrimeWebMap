@@ -75,15 +75,29 @@ function drawChart(count, sum){
 //   }, 500 )
 // }
 
-function relocateChart(arr, chartIdArr){
+function relocateChart(srcArr, chartIdArr){
   setTimeout(function(){
-    for (var i=0; i<chartIdArr.length; i++){ //j = chart's data
-          document.getElementById(chartIdArr[i]).style.position = 'absolute'
-          document.getElementById(chartIdArr[i]).style.pointerEvents = 'none'
-          document.getElementById(chartIdArr[i]).style.transform = "translate3d(" + arr[i][0] + "px," + arr[i][1] + "px, 0px)"; //tile's position data
-          document.getElementById(chartIdArr[i]).style.zIndex = "999" //in the front
+    var pics = document.getElementsByClassName('leaflet-tile-loaded')
+    for (var j=0; j<srcArr.length; j++){ //j = chart's data
+      for (var i=0; i<pics.length; i++){ //i = tile's data
+        if(pics[i].src == srcArr[j]){
+          document.getElementById(chartIdArr[j]).style.position = 'absolute'
+          document.getElementById(chartIdArr[j]).style.pointerEvents = 'none'
+          document.getElementById(chartIdArr[j]).style.transform = pics[i].style.transform //tile's position data
+          document.getElementById(chartIdArr[j]).style.zIndex = "999" //in the front
+          break;//if found, break current loop
         }
+      }
+    }
   }, 500 )
+  // setTimeout(function(){
+  //   for (var i=0; i<chartIdArr.length; i++){ //j = chart's data
+  //         document.getElementById(chartIdArr[i]).style.position = 'absolute'
+  //         document.getElementById(chartIdArr[i]).style.pointerEvents = 'none'
+  //         document.getElementById(chartIdArr[i]).style.transform = "translate3d(" + arr[i][0] + "px," + arr[i][1] + "px, 0px)"; //tile's position data
+  //         document.getElementById(chartIdArr[i]).style.zIndex = "999" //in the front
+  //       }
+  // }, 500 )
 }
 
 function addMarker(coordinate, name) {
